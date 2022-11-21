@@ -1,0 +1,60 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+			{% block 'page-wrapper' %}
+			<!-- /Sidebar -->
+
+			<div class="page-wrapper">
+				<div class="content">
+					<div class="page-header">
+						<div class="page-title">
+							<h4>Product Add</h4>
+							<h6>Create new product</h6>
+						</div>
+					</div>
+					<!-- /add -->
+					<div class="card">
+						<div class="card-body">
+							<form action="" method="POST">
+								{% csrf_token %}
+								<div class="row">
+									<div class="col-lg-3 col-sm-6 col-12">
+										<div class="form-group">
+											<label>Product Name</label>
+											{{stock.product}}
+										</div>
+									</div>
+									<div class="col-lg-3 col-sm-6 col-12">
+										<div class="form-group">
+											<label>Phsyical Number</label>
+											{{stock.phsyical_number}}
+										</div>
+									</div>
+									<div class="col-lg-3 col-sm-6 col-12">
+										<div class="form-group">
+											<label>Reserved Number</label>
+											{{stock.reserved_number}}
+										</div>
+									</div>
+									<div class="col-lg-3 col-sm-6 col-12">
+										<div class="form-group">
+											<label>Active Number</label>
+											{{stock.active_number}}
+										</div>
+									</div>
+									
+									<div class="col-lg-12">
+										<input href="{% url 'addstock' %}" class="btn btn-submit me-2" type="Submit">
+										<a href="{% url 'stocklist' %}" class="btn btn-cancel">Cancel</a>
+									</div>
+								</div>
+							</form>	
+						</div>
+					</div>
+					<!-- /add -->
+				</div>
+			</div>
+        </div>
+		<!-- /Main Wrapper -->
+
+		{% endblock %}

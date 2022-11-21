@@ -1,0 +1,136 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block 'page-wrapper' %}
+<div class="page-wrapper">
+    <div class="content">
+        <div class="page-header">
+            <div class="page-title">
+                <h4>Add Sale</h4>
+                <h6>Add your new sale</h6>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <form action="" method="POST">
+                    {% csrf_token %}
+                    <div class="row" style="bottom:
+                    30px ;">
+                        
+                            <div class="col-lg-3 col-sm-6 col-12">
+                                <div class="form-group">
+                                    <label>Stockdan Mal Seçimi</label>
+                                    <div class="row">
+                                        <div class="col-lg-10 col-sm-10 col-10">
+                                            {{adding.stock}}
+                                        </div>
+                                        <div class="col-lg-2 col-sm-2 col-2 ps-0">
+                                            <div class="add-icon">
+                                                <span><img src="{% static 'assets/img/icons/plus1.svg' %}" alt="img"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-sm-6 col-12">
+                                <div class="form-group">
+                                    <label>Müqavilənin Növü</label>
+                                    {{adding.contract_type}}
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-sm-6 col-12">
+                                <div class="form-group">
+                                    <label>Müqavilə Kodu</label>
+                                    {{adding.contract_code}}
+                                </div>
+                            </div>
+
+                            <div class="col-lg-3 col-sm-6 col-12 ">
+                                <div class="form-group">
+                                    <label>Rezervasiya Statusu</label>
+                                        <label>
+                                            {{adding.reserved_status}}
+                                        </label>   
+                                </div>
+                            </div>
+                            
+                            <div class="col-lg-3 col-sm-6 col-12">
+                                <div class="form-group">
+                                    <label>Satış Sayı (ədədlə)</label>
+                                    {{adding.sale_number}}
+                                </div>
+                            </div>     
+                            <div class="col-lg-3 col-sm-6 col-12">
+                                <div class="form-group">
+                                    <label>Rezervasiya Tarixi</label>
+                                    <div class="input-groupicon">
+                                        <!-- <input type="text" placeholder="Choose Date" class="datetimepicker"> -->
+                                        {{adding.reserved_date}}
+                                        <a class="addonset">
+                                            <img src="{% static 'assets/img/icons/calendars.svg' %}" alt="img">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-lg-12">
+                                <input  class="btn btn-submit me-2" type="submit" >
+                                <a href="javascript:void(0);"  class="btn btn-cancel">Cancel</a>
+                            </div>
+                    
+                    </div>
+                </form>
+                <div class="row" style="margin-top:20px">
+                    <div class="table-responsive mb-3">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    
+                                    <th>Product Name</th>
+                                    <th>Fiziki sayi</th>
+                                    <th>Bron sayi</th>
+                                    
+                                    <th>Aktiv sayi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for x in products %}
+                                <tr>
+                                    <td>{{x.product.product_article}}</td>
+                                    <td>
+                                        {{x.phsyical_number}}
+                                    </td>
+                                    <td>{{x.reserved_number}}</td>
+                                    <td>{{x.active_number}}</td>
+                                    
+                                    
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                
+                
+            </div>
+        </div>
+    </div>
+</div>
+<!-- show payment Modal -->
+<div class="modal fade" id="showsubmit" tabindex="-1" aria-labelledby="showsubmit" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Show Payments</h5>
+                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+            </div>
+            <div class="modal-body">
+                <div class="table-responsive">
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- show payment Modal -->
+{% endblock %}
