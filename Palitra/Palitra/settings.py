@@ -24,9 +24,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "django-insecure-f*a5ml9iji@robjmcd!_6^(w^_9d3f!-t^+$=7hn@+0q+ey=$t"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['https://palitrastock.herokuapp.com/', '127.0.0.1']
 
 
 # Application definition
