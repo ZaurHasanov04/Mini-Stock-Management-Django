@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from .models import *
 from Stock.models import *
 from .forms import *
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, JsonResponse
 # Create your views here.
 
 
@@ -24,8 +24,6 @@ def to_show_add_sales(request):
     
     if request.method == 'POST':
         sale=SaleForm(request.POST)
-        print(sale)
-        print('hello')
         sale.save()
         return HttpResponseRedirect('saleslist')
 
@@ -37,9 +35,22 @@ def to_show_add_sales(request):
     return render(request, 'addsales.html', context)
 
 
+def to_update_sale(request,id):
+    instance = Sale.objects.get(id=id)
+    update_sale = SaleForm(instance=instance)
+    if request.method == 'POST':
+        sale = SaleForm(request.POST, instance=instance)
+        sale.save()
+        return HttpResponseRedirect('saleslist')
+
+    return JsonResponse({'sale':update_sale})    
+   
+
+
 def to_delete_sale(request, id):
-    
+    print(id)
     sale=Sale.objects.get(id=id)
+    print(sale)
 
     sale.delete()
     

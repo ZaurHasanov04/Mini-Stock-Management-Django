@@ -88,7 +88,6 @@
 											<th>Mal Adı</th>
 											<th>Müqavilə Kodu</th>
 											<th>Rezervasiya Statusu</th>
-											<th>Satış Statusu</th>
 											<th>Rezervasiya Tarixi</th>
 											<th>Satış sayı</th>
 											<th>İstifadəçi</th>
@@ -109,14 +108,9 @@
 											<td>{{x.stock}}</td>
 											<td>{{x.contract}}</td>
 											{% if x.reserved_status == True %}
-											<td><span class="badges bg-lightred">Bron edilmişdir</span></td>
+											<td><span class="badges bg-success">Bron edilmişdir</span></td>
 											{% else %}
 											<td><span class="badges bg-lightred">Bron Yoxdur</span></td>
-											{% endif %}
-											{% if x.sale_status == True %}
-											<td><span class="badges bg-lightred">Satıldı</span></td>
-											{% else %}
-											<td><span class="badges bg-lightred">Satılmayıb</span></td>
 											{% endif %}
 											<td>{{x.reserved_date}}</td>
 											<td>{{x.sale_number}}</td>
@@ -136,7 +130,7 @@
 														<a href="javascript:void(0);" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#showpayment"><img src="{% static 'assets/img/icons/dollar-square.svg' %}" class="me-2" alt="img">Show Payments</a>
 													</li>
 													<li>
-														<a href="javascript:void(0);" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#createpayment"><img src="{% static 'assets/img/icons/plus-circle.svg' %}" class="me-2" alt="img">Create Payment</a>
+														<a href="#" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#createpayment"><img src="{% static 'assets/img/icons/plus-circle.svg' %}" class="me-2" alt="img">Create Payment</a>
 													</li>
 													<li>
 														<a href="javascript:void(0);" class="dropdown-item"><img src="{% static 'assets/img/icons/download.svg' %}" class="me-2" alt="img">Download pdf</a>

@@ -16,8 +16,8 @@ class Stock(models.Model):
         return self.product.product_article
 
 
-@receiver(pre_save, sender = Stock)
-def to_handle_presave_stock(sender, instance, *args, **kwargs):
-    instance.active_number = instance.phsyical_number - instance.reserved_number
+# @receiver(pre_save, sender = Stock)
+# def to_handle_presave_stock(sender, instance, *args, **kwargs):
+#     instance.active_number = instance.phsyical_number - instance.reserved_number
     
-    instance.save()
+#     instance.save()
